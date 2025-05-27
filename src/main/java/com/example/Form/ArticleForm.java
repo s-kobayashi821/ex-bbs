@@ -4,9 +4,6 @@ package com.example.Form;
  * 記事のフォームクラス.
  */
 public class ArticleForm {
-    /**投稿ID*/
-    private Integer id;
-
     /**名前*/
     private String name;
 
@@ -16,18 +13,9 @@ public class ArticleForm {
     @Override
     public String toString() {
         return "ArticleDomain{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", content='" + content + '\'' +
                 '}';
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getName() {

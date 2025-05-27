@@ -4,9 +4,6 @@ package com.example.Form;
  * コメントのフォームクラス.
  */
 public class CommentForm {
-    /**コメントID*/
-    private Integer id;
-
     /**名前*/
     private String name;
 
@@ -19,19 +16,10 @@ public class CommentForm {
     @Override
     public String toString() {
         return "CommentDomain{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", content='" + content + '\'' +
                 ", article_id=" + articleId +
                 '}';
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getName() {
