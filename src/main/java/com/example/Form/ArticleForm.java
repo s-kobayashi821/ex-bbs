@@ -1,28 +1,24 @@
-package com.example.domain;
+package com.example.Form;
 
 /**
- * コメントを表すドメイン.
+ * 記事のフォームクラス.
  */
-public class CommentDomain {
-    /**コメントID*/
+public class ArticleForm {
+    /**投稿ID*/
     private Integer id;
 
     /**名前*/
     private String name;
 
-    /**コメント内容x*/
+    /**記事内容x*/
     private String content;
-
-    /**投稿ID*/
-    private Integer articleId;
 
     @Override
     public String toString() {
-        return "CommentDomain{" +
+        return "ArticleDomain{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", content='" + content + '\'' +
-                ", article_id=" + articleId +
                 '}';
     }
 
@@ -48,13 +44,5 @@ public class CommentDomain {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public Integer getArticleId() {
-        return articleId;
-    }
-
-    public void setArticleId(Integer articleId) {
-        this.articleId = articleId;
     }
 }

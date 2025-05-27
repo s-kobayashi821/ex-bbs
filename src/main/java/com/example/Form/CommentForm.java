@@ -1,9 +1,9 @@
-package com.example.domain;
+package com.example.Form;
 
 /**
- * コメントを表すドメイン.
+ * コメントのフォームクラス.
  */
-public class CommentDomain {
+public class CommentForm {
     /**コメントID*/
     private Integer id;
 
