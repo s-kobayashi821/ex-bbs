@@ -1,0 +1,105 @@
+DROP TABLE IF EXISTS teams CASCADE;
+CREATE TABLE teams(
+	id serial primary key,
+	league_name text,
+	team_name text,
+	headquarters text,
+	inauguration text,
+	history text
+);
+INSERT INTO teams (league_name, team_name, headquarters, inauguration, history) VALUES
+('セントラル・リーグ','読売ジャイアンツ','東京ドーム（東京都・文京区）','1934年12月26日','大日本東京野球倶楽部（1934年）
+↓
+東京巨人軍（1935年〜1946年）
+↓
+読売ジャイアンツ（1947年〜）');
+INSERT INTO teams (league_name, team_name, headquarters, inauguration, history) VALUES
+('セントラル・リーグ','阪神タイガース','阪神甲子園球場（兵庫県・西宮市）','1935年12月10日','大阪タイガース（1935年〜1940年途）
+↓
+阪神軍（1940年途〜1946年）
+↓
+大阪タイガース（1947年〜1960年）→阪神タイガース（1961年〜）');
+INSERT INTO teams (league_name, team_name, headquarters, inauguration, history) VALUES
+('セントラル・リーグ','中日ドラゴンズ','ナゴヤドーム（愛知県・名古屋市東区）','1936年1月15日','名古屋軍（1936年〜1943年）
+↓
+産業軍（1944年）
+↓
+中部日本軍（1946年）
+↓
+中日ドラゴンズ（1947年〜1950年）
+↓
+名古屋ドラゴンズ（1951年〜1953年）
+↓
+中日ドラゴンズ（1954年〜）');
+INSERT INTO teams (league_name, team_name, headquarters, inauguration, history) VALUES
+('セントラル・リーグ','横浜DeNAベイスターズ','横浜スタジアム（神奈川県・横浜市中区）','1949年11月22日','大洋ホエールズ（1950年〜1952年）
+↓
+大洋松竹ロビンス（1953年〜1954年）
+↓
+大洋ホエールズ（1955年〜1977年）
+↓
+横浜大洋ホエールズ（1978年〜1992年）
+↓
+横浜ベイスターズ（1993年〜2011年）
+↓
+横浜DeNAベイスターズ（2012年〜）');
+INSERT INTO teams (league_name, team_name, headquarters, inauguration, history) VALUES
+('セントラル・リーグ','広島東洋カープ','MAZDA Zoom-Zoomスタジアム広島（広島県・広島市南区）','1949年12月15日','広島カープ（1950年〜1967年）
+↓
+広島東洋カープ（1968年〜）'),
+('セントラル・リーグ','東京ヤクルトスワローズ','明治神宮野球場（東京都・新宿区）','1950年1月12日','国鉄スワローズ（1950年〜1965年途）
+↓
+サンケイスワローズ（1965年途〜終了）
+↓
+サンケイアトムズ（1966年〜1968年）
+↓
+アトムズ（1969年）
+↓
+ヤクルトアトムズ（1970年〜1973年）
+↓
+ヤクルトスワローズ（1974年〜2005年）
+↓
+東京ヤクルトスワローズ（2006年〜）');
+
+
+DROP TABLE IF EXISTS hotels CASCADE;
+CREATE TABLE hotels(
+	id serial primary key,
+	area_name text,
+	hotel_name text,
+	address text,
+	nearest_station text,
+	price integer,
+	parking text
+);
+
+INSERT INTO hotels(area_name, hotel_name, address, nearest_station, price, parking) VALUES (
+'首都圏','横浜ベイホテル東急','神奈川県横浜市西区みなとみらい２－３－７','桜木町駅','10000','あり');
+INSERT INTO hotels(area_name, hotel_name, address, nearest_station, price, parking) VALUES (
+'首都圏','パレスホテル東京','東京都千代田区丸の内１丁目１−１','東京駅','20000','なし');
+INSERT INTO hotels(area_name, hotel_name, address, nearest_station, price, parking) VALUES (
+'首都圏','ホテルローズガーデン新宿','東京都新宿区西新宿８−１−３','西新宿駅','5000','あり');
+INSERT INTO hotels(area_name, hotel_name, address, nearest_station, price, parking) VALUES (
+'首都圏','渋谷エクセルホテル東急','東京都渋谷区道玄坂１−１２−２','渋谷駅','10000','なし');
+INSERT INTO hotels(area_name, hotel_name, address, nearest_station, price, parking) VALUES (
+'首都圏','東京ベイ舞浜ホテル','千葉県浦安市舞浜１−３４','舞浜駅','15000','あり');
+
+
+DROP TABLE IF EXISTS clothes CASCADE;
+CREATE TABLE clothes(
+	id serial primary key,
+	category text,
+	genre text,
+	gender integer,
+	color text,
+	price integer,
+	size text
+);
+
+INSERT INTO clothes(category, genre, gender, color, price, size) VALUES ('洋服','ジャケット',0,'赤',10000,'S');
+INSERT INTO clothes(category, genre, gender, color, price, size) VALUES ('洋服','パンツ　　',0,'白',20000,'M');
+INSERT INTO clothes(category, genre, gender, color, price, size) VALUES ('洋服','Ｔシャツ　',1,'青',5000,'M');
+INSERT INTO clothes(category, genre, gender, color, price, size) VALUES ('洋服','帽子　　　',1,'白',10000,'S');
+INSERT INTO clothes(category, genre, gender, color, price, size) VALUES ('洋服','ジャケット',0,'黄',15000,'L');
+INSERT INTO clothes(category, genre, gender, color, price, size) VALUES ('洋服','ワイシャツ　',1,'青',3500,'M');
+INSERT INTO clothes(category, genre, gender, color, price, size) VALUES ('洋服','スーツ　　　',1,'青',8000,'L');
