@@ -1,6 +1,5 @@
 package com.example.repository;
 
-import com.example.domain.Cloth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;

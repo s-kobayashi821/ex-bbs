@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import com.example.domain.Cloth;
 import com.example.service.ClothService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
