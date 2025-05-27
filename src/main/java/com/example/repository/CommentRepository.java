@@ -29,7 +29,7 @@ public class CommentRepository {
     };
 
     /**
-     * articleIdによってコメントを検索する
+     * articleIdによってコメントを検索する.
      *
      * @param articleId 記事のid
      * @return
@@ -47,7 +47,7 @@ public class CommentRepository {
     }
 
     /**
-     * 新しいコメントをDBに追加する
+     * 新しいコメントをDBに追加する.
      *
      * @param comment コメント
      */
@@ -64,8 +64,7 @@ public class CommentRepository {
     }
 
     /**
-     * articleIdを指定してDBからコメントを削除する
-     *
+     * articleIdを指定してDBからコメントを削除する.
      * @param articleId　記事のID
      */
     public void deleteByArticleId(int articleId) {
