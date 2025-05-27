@@ -1,6 +1,6 @@
 package com.example.repository;
 
-import com.example.domain.ArticleDomain;
+import com.example.domain.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -18,19 +18,56 @@ public class ArticleRepository {
     @Autowired
     private NamedParameterJdbcTemplate template;
 
-    public static RowMapper<ArticleDomain> ARTICLE_ROW_MAPPER = (rs, rowNum) ->{
-        ArticleDomain article = new ArticleDomain();
+    public static RowMapper<Article> ARTICLE_ROW_MAPPER = (rs, rowNum) ->{
+        Article article = new Article();
         article.setId(rs.getInt("id"));
         article.setName(rs.getString("name"));
         article.setContent(rs.getString("content"));
         return article;
     };
 
-    public List<ArticleDomain> findAll(){
+    /**
+     * すべての記事をDBから取得する.
+     *
+     * @return すべての記事
+     */
+    public List<Article> findAll() {
         String sql = """
-                SELECT id, name, content FROM articles;
+                SELECT id, name, content FROM articles 
+                ORDER BY id;
                 """;
-        List<ArticleDomain> articleList = template.query(sql, ARTICLE_ROW_MAPPER);
+        List<Article> articleList = template.query(sql, ARTICLE_ROW_MAPPER);
         return  articleList;
+    }
+
+
+    /**
+     * DBに新しい記事を登録する.
+     *
+     * @param article 登録する記事
+     */
+    public void insert(Article article){
+        String sql = """
+                INSERT INTO articles name, content 
+                VALUES (:name, :comment);
+                """;
+        SqlParameterSource param = new MapSqlParameterSource()
+                .addValue("name", article.getName())
+                .addValue("content", article.getContent());
+        template.update(sql, param);
+    }
+
+    /**
+     * idを指定して記事を削除する.
+     *
+     * @param id 削除する記事のid
+     */
+    public void deleteById(Integer id){
+        String sql = """
+                DELETE FROM articles WHERE id = :id;
+                """;
+        SqlParameterSource param = new MapSqlParameterSource()
+                .addValue("id", id);
+        template.update(sql, param);
     }
 }

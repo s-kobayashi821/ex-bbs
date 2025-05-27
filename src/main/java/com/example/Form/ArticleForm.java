@@ -12,7 +12,7 @@ public class ArticleForm {
 
     @Override
     public String toString() {
-        return "ArticleDomain{" +
+        return "Article{" +
                 ", name='" + name + '\'' +
                 ", content='" + content + '\'' +
                 '}';

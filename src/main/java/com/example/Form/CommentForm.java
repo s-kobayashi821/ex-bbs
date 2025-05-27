@@ -15,7 +15,7 @@ public class CommentForm {
 
     @Override
     public String toString() {
-        return "CommentDomain{" +
+        return "Comment{" +
                 ", name='" + name + '\'' +
                 ", content='" + content + '\'' +
                 ", article_id=" + articleId +

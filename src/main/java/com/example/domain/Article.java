@@ -3,7 +3,7 @@ package com.example.domain;
 /**
  * 記事を表すドメイン.
  */
-public class ArticleDomain {
+public class Article {
     /**投稿ID*/
     private Integer id;
 
@@ -15,7 +15,7 @@ public class ArticleDomain {
 
     @Override
     public String toString() {
-        return "ArticleDomain{" +
+        return "Article{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", content='" + content + '\'' +
