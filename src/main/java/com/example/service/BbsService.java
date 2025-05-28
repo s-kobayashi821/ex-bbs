@@ -7,6 +7,7 @@ import com.example.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 
 import java.util.*;
 
@@ -23,19 +24,35 @@ public class BbsService {
     private CommentRepository commentRepository;
 
     /**
-     * すべての「記事とコメントのペア」のリストを返す.
+     * すべての「記事とそれに対するコメントのリスト」のリストを取得する.
      *
-     * @return articleAndComment 「記事とコメントのペア」のリスト
+     * @return articleAndComment 「記事とそれに対するコメントのリスト」のリスト
      */
-    public LinkedHashMap<Article, List<Comment>> getAllArticleAndComment(){
-        LinkedHashMap<Article, List<Comment>> articleAndComment =new LinkedHashMap<>();
-        List<Article> articleList = articleRepository.findAll();
-        for(Article article: articleList){
-            List<Comment> commentList = commentRepository.findByArticleId(article.getId());
-            articleAndComment.put(article, commentList);
-        }
-        return articleAndComment;
+//    public List<Article> getAllArticleAndComment(){
+//        List<Article>  articleList= articleRepository.findAll();
+//        for(Article article: articleList){
+//            List<Comment> commentList = commentRepository.findByArticleId(article.getId());
+//            article.setCommentList(commentList);
+//        }
+//        return articleList;
+//    }
+
+    /**
+     * 中級者課題用:すべての「記事とそれに対するコメントのリスト」のリストを取得する.
+     *
+     * @return articleAndComment 「記事とそれに対するコメントのリスト」のリスト
+     */
+    public List<Article> getAllArticleAndComment(){
+//        List<Article>  articleList= articleRepository.findAll();
+//        for(Article article: articleList){
+//            List<Comment> commentList = commentRepository.findByArticleId(article.getId());
+//            article.setCommentList(commentList);
+//        }
+//        return articleList;
+        return articleRepository.findAllArticleAndComment();
     }
+
+
 
     /**
      * 記事IDを指定して該当する記事,コメントを削除する.
@@ -43,8 +60,8 @@ public class BbsService {
      * @param articleId 記事ID
      */
     public void deleteArticleAndComment(int articleId){
+//        commentRepository.deleteByArticleId(articleId);
         articleRepository.deleteById(articleId);
-        commentRepository.deleteByArticleId(articleId);
     }
 
     /**
@@ -65,4 +82,7 @@ public class BbsService {
     public void insertComment(Comment comment){
         commentRepository.insert(comment);
     }
+
+
+
 }

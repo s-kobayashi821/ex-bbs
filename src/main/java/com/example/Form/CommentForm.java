@@ -1,13 +1,20 @@
 package com.example.Form;
 
+import jakarta.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.Length;
+
 /**
  * コメントのフォームクラス.
  */
 public class CommentForm {
     /**名前*/
+    @NotBlank(message = "投稿者名を入力してください")
+    @Length(max=50, message = "投稿者名が長すぎます")
     private String name;
 
     /**コメント内容x*/
+    @NotBlank(message = "コメントを入力してください")
+    @Length(max=200, message = "コメントが長すぎます")
     private String content;
 
     /**投稿ID*/

@@ -1,5 +1,7 @@
 package com.example.domain;
 
+import java.util.List;
+
 /**
  * 記事を表すドメイン.
  */
@@ -13,12 +15,16 @@ public class Article {
     /**記事内容x*/
     private String content;
 
+    /**コメントのリスト*/
+    private List<Comment> commentList;
+
     @Override
     public String toString() {
         return "Article{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", content='" + content + '\'' +
+                ", commentList=" + commentList +
                 '}';
     }
 
@@ -44,5 +50,13 @@ public class Article {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
     }
 }
