@@ -96,4 +96,20 @@ public class BbsController {
         service.deleteArticleAndComment(articleId);
         return "redirect:";
     }
+
+
+    /**
+     * articleIdの記事に遷移する.
+     */
+    @GetMapping("/article")
+    public String article(Integer articleId, Model model){
+        Article article =  service.getArticleAndComment(articleId);
+
+        if(article == null){
+            return "errorpage";
+        }
+
+        model.addAttribute("article", article);
+        return  "article";
+    }
 }

@@ -52,6 +52,23 @@ public class BbsService {
         return articleRepository.findAllArticleAndComment();
     }
 
+    /**
+     * 記事IDを指定して記事とコメント一覧を取得
+     *
+     * @param articleId 記事ID
+     * @return 記事
+     */
+    public Article getArticleAndComment(Integer articleId){
+        Article article = articleRepository.findById(articleId);
+
+        if(article == null)
+            return null;
+
+        List<Comment> commentList = commentRepository.findByArticleId(articleId);
+        article.setCommentList(commentList);
+        return article;
+    }
+
 
 
     /**

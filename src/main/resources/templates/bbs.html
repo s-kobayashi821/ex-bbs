@@ -14,26 +14,19 @@
       <!-- 入力を保存する場合 -->
       <div th:if="${errorArticleId == null}">
         <div th:errors="*{name}" style="color: red"></div>
-        投稿者名：<input
-          type="text"
-          name="name"
-          th:field="*{name}"
-          id=""
-        /><br />
+        投稿者名：
+        <input type="text" name="name" th:field="*{name}" id="" /><br>
 
         <div th:errors="*{content}" style="color: red"></div>
         投稿内容:
         <textarea name="content" th:field="*{content}" id=""></textarea><br />
+        <br />
         <button type="submit">記事投稿</button>
       </div>
 
       <!-- 入力を保存しない場合 -->
       <div th:if="${errorArticleId != null}">
-        投稿者名：<input
-          type="text"
-          name="name"
-          id=""
-        /><br />
+        投稿者名：<input type="text" name="name" id="" /><br />
 
         投稿内容:
         <textarea name="content" id=""></textarea><br />
@@ -47,6 +40,9 @@
       <hr />
       <p th:text="投稿者名：+ ${article.name}"></p>
       <p th:text="投稿内容：+ ${article.content}"></p>
+
+      <form action=""></form>
+      <a th:href="@{/article(articleId=${article.id})}">この記事に飛ぶ</a>
 
       <!-- 記事を削除するボタン -->
       <form th:action="@{/deleteArticle}" method="post">

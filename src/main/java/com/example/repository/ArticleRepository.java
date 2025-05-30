@@ -29,6 +29,25 @@ public class ArticleRepository {
         return article;
     };
 
+    /**
+     * 記事IDから記事を取得する.
+     *
+     * @param articleId 記事のID
+     * @return 記事
+     */
+    public Article findById(Integer articleId) {
+        String sql = """
+                SELECT id, name, content FROM articles  WHERE id=:articleId;
+                """;
+        SqlParameterSource param = new MapSqlParameterSource()
+                .addValue("articleId", articleId);
+        List<Article> articleList = template.query(sql, param, ARTICLE_ROW_MAPPER);
+
+        if(articleList.size()!=1)
+            return null;
+
+        return articleList.get(0);
+    }
 
     /**
      * すべての記事をDBから取得する.
@@ -71,7 +90,7 @@ public class ArticleRepository {
 
                 Comment comment = new Comment();
                 comment.setId(rs.getInt("com_id"));
-                if(rs.wasNull() == false){
+                if (rs.wasNull() == false) {
                     comment.setName(rs.getString("com_name"));
                     comment.setContent(rs.getString("com_content"));
                     comment.setArticleId(rs.getInt("article_id"));
